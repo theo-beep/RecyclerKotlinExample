@@ -1,16 +1,13 @@
 package com.example.recyclerproject
 
 
-import android.renderscript.ScriptGroup
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerproject.databinding.ListItemBinding
 
 
-class myRecyclerAdapter  : RecyclerView.Adapter<MyViewHolder>() {
+class MyRecyclerAdapter  : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
         return MyViewHolder(ListItemBinding.inflate(layoutInflater,parent,false))
