@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerproject.databinding.ListItemBinding
+
+private lateinit var binding :ListItemBinding
 
 class myRecyclerAdapter  : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -15,7 +18,7 @@ class myRecyclerAdapter  : RecyclerView.Adapter<MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-       // holder.view.text =
+        binding.recyclerItemTextView.text = "test"
     }
 
     override fun getItemCount(): Int {
