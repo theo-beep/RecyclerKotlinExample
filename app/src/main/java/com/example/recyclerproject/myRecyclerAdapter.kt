@@ -15,7 +15,7 @@ class myRecyclerAdapter  : RecyclerView.Adapter<MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+       // holder.view.text =
     }
 
     override fun getItemCount(): Int {
