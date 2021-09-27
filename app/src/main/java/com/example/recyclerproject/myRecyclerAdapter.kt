@@ -1,6 +1,7 @@
 package com.example.recyclerproject
 
 
+import android.renderscript.ScriptGroup
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,17 +9,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerproject.databinding.ListItemBinding
 
-private lateinit var binding :ListItemBinding
 
 class myRecyclerAdapter  : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
-        val listItem = layoutInflater.inflate(R.layout.list_item,parent ,false)
-        return MyViewHolder(listItem)
+        return MyViewHolder(ListItemBinding.inflate(layoutInflater,parent,false))
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        binding.recyclerItemTextView.text = "test"
+        holder.binding.recyclerItemTextView.text = " test"
     }
 
     override fun getItemCount(): Int {
@@ -26,6 +25,6 @@ class myRecyclerAdapter  : RecyclerView.Adapter<MyViewHolder>() {
     }
 }
 
-class MyViewHolder(var view:View) : RecyclerView.ViewHolder(view){
+class MyViewHolder(var binding:ListItemBinding) : RecyclerView.ViewHolder(binding.root){
 
 }
