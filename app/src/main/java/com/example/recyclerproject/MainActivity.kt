@@ -27,7 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.myRecyclerView.setBackgroundColor(getColor(R.color.smokeyWhite))
         binding.myRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.myRecyclerView.adapter = MyRecyclerAdapter(fruitsList)
+        binding.myRecyclerView.adapter = MyRecyclerAdapter(fruitsList) { selectedFruitItem: Fruit ->
+            listItemClicked(
+                selectedFruitItem
+            )
+        }
     }
 
     private fun listItemClicked(fruit: Fruit) {

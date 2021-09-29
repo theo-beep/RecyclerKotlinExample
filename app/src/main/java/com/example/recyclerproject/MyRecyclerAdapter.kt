@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerproject.databinding.ListItemBinding
 
 
-class MyRecyclerAdapter(private val fruitsList : List<Fruit>) : RecyclerView.Adapter<MyViewHolder>() {
+class MyRecyclerAdapter(
+    private val fruitsList: List<Fruit>,
+    private val itemClickListener: (Fruit) -> Unit
+) : RecyclerView.Adapter<MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
@@ -14,7 +17,7 @@ class MyRecyclerAdapter(private val fruitsList : List<Fruit>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(fruitsList[position])
+        holder.bind(fruitsList[position], itemClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -24,7 +27,11 @@ class MyRecyclerAdapter(private val fruitsList : List<Fruit>) : RecyclerView.Ada
 
 class MyViewHolder(var binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(fruit : Fruit){
+    fun bind(fruit: Fruit, itemClickListener: (Fruit) -> Unit) {
         binding.recyclerItemTextView.text = fruit.name
+        binding.recyclerItemTextView.setOnClickListener {
+            itemClickListener(fruit)
+        }
     }
 }
+
