@@ -6,18 +6,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerproject.databinding.ListItemBinding
 
 
-class MyRecyclerAdapter : RecyclerView.Adapter<MyViewHolder>() {
+class MyRecyclerAdapter(private val fruitsList : List<Fruit>) : RecyclerView.Adapter<MyViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
         return MyViewHolder(ListItemBinding.inflate(layoutInflater, parent, false))
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.binding.recyclerItemTextView.text = " test"
+        val fruit = fruitsList[position]
+        holder.binding.recyclerItemTextView.text = fruit.name
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return fruitsList.size
     }
 }
 

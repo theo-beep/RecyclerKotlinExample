@@ -9,6 +9,10 @@ import com.example.recyclerproject.databinding.ActivityMainBinding
 
 private lateinit var binding : ActivityMainBinding
 
+val fruitsList = listOf<Fruit>(Fruit("Mango","Tom"),Fruit("Apple","Jake")
+    ,Fruit("Bannana","Tom"),Fruit("Guava","Sam"),Fruit("Lemon","Tom"),
+    Fruit("Pear","Jake"),Fruit("Orange","Tom"))
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +20,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.myRecyclerView.setBackgroundColor(getColor(R.color.smokeyWhite))
         binding.myRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.myRecyclerView.adapter = MyRecyclerAdapter()
+        binding.myRecyclerView.adapter = MyRecyclerAdapter(fruitsList)
     }
 }
